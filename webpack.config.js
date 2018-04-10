@@ -6,7 +6,8 @@ module.exports = {
     host: "0.0.0.0",
     hot: true,
     inline: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    port: 3000
   },
   entry: "./src",
   output: {
@@ -21,5 +22,12 @@ module.exports = {
       path.resolve('./src/ui'),
     ],
     extensions: ['.js', '.jsx', '.scss'],
+  },
+  module: {
+    rules: {
+      test: /\.jsx?$/,
+      include: [path.resolve(__dirname, 'src')],
+      use: ['babel-loader'],
+    },
   }
 }
